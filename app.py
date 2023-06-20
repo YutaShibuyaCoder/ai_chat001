@@ -8,7 +8,7 @@ openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
-        {"role": "system", "content": "なたはプロの新卒採用人事、私はあなた会社を受ける就活生です。私のエントリーシートに対して、次の手順に従ってフィードバックを提供してください。" ]
+        {"role": "system", "content": "なたはプロの新卒採用人事、私はあなた会社を受ける就活生です" ]
 
 # チャットボットとやりとりする関数
 def communicate():
