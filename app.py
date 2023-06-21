@@ -16,7 +16,7 @@ if "count" not in st.session_state:
 
 # チャットボットとやりとりする関数
 def communicate():
-    if st.session_state["count"] < 5:  # 使用回数が5以下の時のみ通信
+    if st.session_state["count"] < 2:  # 使用回数が5以下の時のみ通信
         messages = st.session_state["messages"]
 
         user_message = {"role": "user", "content": st.session_state["user_input"]}
