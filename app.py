@@ -34,7 +34,7 @@ def communicate():
         st.session_state["count"] += 1  # 使用回数を増やす
     else:
         st.warning("無料でお試しいただけるのはここまでです。続けて相談したい方はプレミア登録をしてください。")
-        st.markdown("[リンクテキスト](https://yourlink.com)", unsafe_allow_html=True)
+        st.markdown("[登録はこちら](https://yourlink.com)", unsafe_allow_html=True)
 
 
 # ユーザーインターフェイスの構築
