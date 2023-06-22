@@ -41,18 +41,22 @@ st.title("My AI Assistant")
 st.write("ChatGPT APIを使ったチャットボットです。")
 
 
-
+# メッセージ表示部
 if st.session_state["messages"]:
     messages = st.session_state["messages"]
 
     markdown_text = ""
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
-        speaker = "🙂"
-        if message["role"]=="assistant":
-            speaker="🤖"
-        markdown_text += speaker + ": " + message["content"] + "\n\n"
+        if message["role"] == "assistant":
+            markdown_text += "<div style='text-align: right; color: blue;'>🤖: " + message["content"] + "</div><br>"
+        else:
+            markdown_text += "🙂: " + message["content"] + "<br><br>"
 
-    st.markdown(markdown_text)
+    st.markdown(markdown_text, unsafe_allow_html=True)
+
+
+
+
 
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
 
