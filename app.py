@@ -36,16 +36,16 @@ def communicate():
         st.warning("無料でお試しいただけるのはここまでです。続けて相談したい方はプレミア登録をしてください。")
         st.markdown("[登録はこちら](https://buy.stripe.com/test_dR64gq5eKcBm7UAcMM)", unsafe_allow_html=True)
 
-
 # ユーザーインターフェイスの構築
 st.title("My AI Assistant")
 st.write("ChatGPT APIを使ったチャットボットです。")
 
+user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
 
 if st.session_state["messages"]:
     messages = st.session_state["messages"]
-    
-markdown_text = ""
+
+    markdown_text = ""
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
         speaker = "🙂"
         if message["role"]=="assistant":
@@ -54,4 +54,4 @@ markdown_text = ""
 
     st.markdown(markdown_text)
 
-user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
+
