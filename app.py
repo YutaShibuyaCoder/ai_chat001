@@ -40,23 +40,17 @@ def communicate():
 st.title("My AI Assistant")
 st.write("ChatGPT APIを使ったチャットボットです。")
 
-
-# メッセージ表示部
 if st.session_state["messages"]:
     messages = st.session_state["messages"]
 
     markdown_text = ""
     for message in reversed(messages[1:]):  # 直近のメッセージを上に
-        if message["role"] == "assistant":
-            markdown_text += "<div style='text-align: right; color: blue;'>🤖: " + message["content"] + "</div><br>"
-        else:
-            markdown_text += "🙂: " + message["content"] + "<br><br>"
+        speaker = "🙂"
+        if message["role"]=="assistant":
+            speaker="🤖"
+        markdown_text += speaker + ": " + message["content"] + "\n\n"
 
-    st.markdown(markdown_text, unsafe_allow_html=True)
-
-
-
-
+    st.markdown(markdown_text)
 
 user_input = st.text_input("メッセージを入力してください。", key="user_input", on_change=communicate)
 
